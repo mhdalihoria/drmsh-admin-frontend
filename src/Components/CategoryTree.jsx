@@ -39,7 +39,7 @@ const CategoryTree = () => {
 
   const fetchTree = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/categories/tree");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/categories/tree`);
       setTree(res.data);
     } catch (err) {
       console.error("Failed to load tree:", err);
@@ -48,7 +48,7 @@ const CategoryTree = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/categories/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/categories/${id}`);
       fetchTree();
     } catch (err) {
       console.error("Delete failed:", err);

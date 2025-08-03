@@ -140,7 +140,7 @@ const CategoriesForm = () => {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("http://localhost:5000/api/categories/add", {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/categories/add`, {
         data: Object.values(data),
       });
       alert("Submitted successfully!");

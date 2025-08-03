@@ -9,7 +9,7 @@ const EditorUsersList = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/auth/users', {
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/auth/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(res.data);
@@ -20,7 +20,7 @@ const EditorUsersList = () => {
 
   const promote = async (id) => {
     try {
-      await axios.post(`http://localhost:5000/api/auth/users/promote/${id}`, {}, {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/users/promote/${id}`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchUsers();
